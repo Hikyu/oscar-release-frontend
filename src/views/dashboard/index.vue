@@ -1,32 +1,53 @@
 <template>
-  <div class="dashboard-container">
-    <div class="dashboard-text">name:{{ name }}</div>
-    <div class="dashboard-text">roles:<span v-for="role in roles" :key="role">{{ role }}</span></div>
-  </div>
+<div class="mixin-components-container">
+  <el-row :gutter="20">
+      <el-card class="box-card">
+        <div slot="header" class="clearfix">
+          <span>待办事项</span>
+        </div>
+        <div style="margin-bottom:50px;">
+           <el-col :span="6">
+            <el-card class="box-card" style="margin-bottom:20px;">
+              <div slot="header" class="clearfix">
+                <span>发布单1</span>
+              </div>
+              <div style="height:100px;">
+                Hello,World
+              </div>
+            </el-card>
+          </el-col>
+        </div>
+      </el-card>
+    </el-row>
+
+    <el-row :gutter="20" style="margin-top:50px;">
+      <el-card class="box-card">
+        <div slot="header" class="clearfix">
+          <span>我的发布</span>
+        </div>
+        <div style="margin-bottom:50px;">
+           Hello,World
+        </div>
+      </el-card>
+    </el-row>
+</div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 
 export default {
-  name: 'Dashboard',
+  name: "Dashboard",
   computed: {
-    ...mapGetters([
-      'name',
-      'roles'
-    ])
+    ...mapGetters(["name", "roles"])
   }
-}
+};
 </script>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
-.dashboard {
-  &-container {
-    margin: 30px;
-  }
-  &-text {
-    font-size: 30px;
-    line-height: 46px;
-  }
+<style scoped>
+.mixin-components-container {
+  background-color: #f0f2f5;
+  padding: 30px;
+  min-height: calc(100vh - 84px);
 }
 </style>

@@ -92,6 +92,11 @@ export default {
           this.loading = true
           this.$store.dispatch('Login', this.loginForm).then(() => {
             this.loading = false
+            this.$notify({
+              title: '登录成功',
+              message: '欢迎回来，有待办事项，注意查看哟',
+              type: 'success'
+            });
             this.$router.push({ path: this.redirect || '/' })
           }).catch(() => {
             this.loading = false
